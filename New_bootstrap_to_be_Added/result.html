@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cancer Output</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <style>
+	  body {
+		background-color: #d4d4d4;
+	}
+	.card__style {
+		box-shadow: 0 2rem 4rem #000;
+    }
+	  .row__center {
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  -webkit-transform: translate(-50%, -50%);
+    	  transform: translate(-50%, -50%);
+	  }
+  </style>
+</head>
+<body>
+	<div class="container">
+		<div class="row row__center" style = "width: 35%;">
+			<div class="col" >
+				<div class="card text-center card__style">
+					<div class="card-header bg-dark text-white">
+						<h3>{{ prediction}} Cancer</h3>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

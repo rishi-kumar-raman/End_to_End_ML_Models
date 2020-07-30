@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cancer Predictor</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #d4d4d4;
+    }
+    .card__style {
+      box-shadow: 0 2rem 4rem #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col">
+        <div class="card text-left card__style">
+          <div class="card-header bg-dark text-white">
+              <h3>Cancer Predictor Application</h3>
+          </div>
+          <div class="card-body">
+            <form action='/predict' method="POST">
+              <small class="form-text mb-3 lead font-weight-bold text-primary">
+                All fields are mandatory!
+              </small>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class = "col-sm-4">Radius Mean</label>
+                    <input
+                      type="text"
+                      id="radius_mean"
+                      name="radius_mean"
+                      placeholder="Enter the Radius Mean"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                  <div class="form-group row">
+                    <label class = "col-sm-4">Texture Mean</label>
+                    <input
+                      type="text"
+                      id="texture_mean"
+                      name="texture_mean"
+                      placeholder="Enter the Texture Mean"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Perimeter Mean</label>
+                    <input
+                      type="text"
+                      id="perimeter_mean"
+                      name="perimeter_mean"
+                      placeholder="Enter the Perimeter Mean"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Area Mean</label>
+                    <input
+                      type="text"
+                      id="area_mean"
+                      name="area_mean"
+                      placeholder="Enter the Area Mean"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Smoothness Mean</label>
+                    <input
+                      type="text"
+                      id="smoothness_mean"
+                      name="smoothness_mean"
+                      placeholder="Enter the Smoothness Mean"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Compactness Mean</label>
+                    <input
+                      type="text"
+                      id="compactness_mean"
+                      name="compactness_mean"
+                      placeholder="Enter the Compactness Mean"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Concavity Mean</label>
+                    <input
+                      type="text"
+                      id="concavity_mean"
+                      name="concavity_mean"
+                      placeholder="Enter the Concavity Mean"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Concave Point Mean</label>
+                    <input
+                      type="text"
+                      id="concave points_mean"
+                      name="concave points_mean"
+                      placeholder="Enter the Concave Point Mean"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Symmetry Mean</label>
+                    <input
+                      type="text"
+                      id="symmetry_mean"
+                      name="symmetry_mean"
+                      placeholder="Enter the Symmetry Mean"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Fractal Dimension Mean</label>
+                    <input
+                      type="text"
+                      id="fractal_dimension_mean"
+                      name="fractal_dimension_mean"
+                      placeholder="Enter the Fractal Dimension Mean"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Radius SE</label>
+                    <input
+                      type="text"
+                      id="radius_se"
+                      name="radius_se"
+                      placeholder="Enter the Radius SE"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Texture SE</label>
+                    <input
+                      type="text"
+                      id="texture_se"
+                      name="texture_se"
+                      placeholder="Enter the Texture SE"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Perimeter SE</label>
+                    <input
+                      type="text"
+                      id="perimeter_se"
+                      name="perimeter_se"
+                      placeholder="Enter the Perimeter SE"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class = "col-sm-4">Area SE</label>
+                    <input
+                      type="text"
+                      id="area_se"
+                      name="area_se"
+                      placeholder="Enter the Area SE"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Smoothness SE</label>
+                    <input
+                      type="text"
+                      id="smoothness_se"
+                      name="smoothness_se"
+                      placeholder="Enter the Smoothness SE"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                  
+                </div>
+                <div class="col-md-6">
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Compactness SE</label>
+                    <input
+                      type="text"
+                      id="compactness_se"
+                      name="compactness_se"
+                      placeholder="Enter the Compactness SE"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Concavity SE</label>
+                    <input
+                      type="text"
+                      id="concavity_se"
+                      name="concavity_se"
+                      placeholder="Enter the Concavity SE"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Concave Point SE</label>
+                    <input
+                      type="text"
+                      id="concave points_se"
+                      name="concave points_se"
+                      placeholder="Enter the Concave Point SE"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Symmetry SE</label>
+                    <input
+                      type="text"
+                      id="symmetry_se"
+                      name="symmetry_se"
+                      placeholder="Enter the Symmetry SE"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Fractal Dimension SE</label>
+                    <input
+                      type="text"
+                      id="fractal_dimension_se"
+                      name="fractal_dimension_se"
+                      placeholder="Enter the Fractal Dimension SE"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                  <!-- Worst-->
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Radius worst</label>
+                    <input
+                      type="text"
+                      id="radius_worst"
+                      name="radius_worst"
+                      placeholder="Enter the Radius worst"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Texture worst</label>
+                    <input
+                      type="text"
+                      id="texture_worst"
+                      name="texture_worst"
+                      placeholder="Enter the Texture worst"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Perimeter worst</label>
+                    <input
+                      type="text"
+                      id="perimeter_worst"
+                      name="perimeter_worst"
+                      placeholder="Enter the Perimeter worst"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Area worst</label>
+                    <input
+                      type="text"
+                      id="area_worst"
+                      name="area_worst"
+                      placeholder="Enter the Area worst"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Smoothness worst</label>
+                    <input
+                      type="text"
+                      id="smoothness_worst"
+                      name="smoothness_worst"
+                      placeholder="Enter the Smoothness worst"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Compactness worst</label>
+                    <input
+                      type="text"
+                      id="compactness_worst"
+                      name="compactness_worst"
+                      placeholder="Enter the Compactness worst"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Concavity worst</label>
+                    <input
+                      type="text"
+                      id="concavity_worst"
+                      name="concavity_worst"
+                      placeholder="Enter the Concavity worst"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Concave Point worst</label>
+                    <input
+                      type="text"
+                      id="concave points_worst"
+                      name="concave points_worst"
+                      placeholder="Enter the Concave Point worst"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Symmetry worst</label>
+                    <input
+                      type="text"
+                      id="symmetry_worst"
+                      name="symmetry_worst"
+                      placeholder="Enter the Symmetry worst"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                
+                 <div class="form-group row">
+                    <label class = "col-sm-4">Fractal Dimension worst</label>
+                    <input
+                      type="text"
+                      id="fractal_dimension_worst"
+                      name="fractal_dimension_worst"
+                      placeholder="Enter the Fractal Dimension worst"
+                    class="form-control col-sm-8"
+                    required/>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class = "btn btn-success">Get Prediction</button>
+            </form>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
